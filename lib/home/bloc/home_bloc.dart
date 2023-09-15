@@ -1,7 +1,9 @@
 import 'dart:async';
-
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
+import 'package:the_movie_app_with_bloc/home/repos/repos.dart';
+import 'package:the_movie_app_with_bloc/model/movies_data_model.dart';
+import 'package:the_movie_app_with_bloc/model/response_model.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';
@@ -20,8 +22,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   FutureOr<void> initialStageEvent(
       InitialStageEvent event, Emitter<HomeState> emit) async {
     emit(HomeInitial());
-    await Future.delayed(Duration(seconds: 5));
-    print('5 secconds');
-    emit(SuccessState());
+    final movieResult = await Repos.fetchMovieData();
+    print(movieResult);
+
+    emit(SuccessState(moviesData: movieResult));
   }
 }
