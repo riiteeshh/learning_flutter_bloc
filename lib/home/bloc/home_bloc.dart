@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:the_movie_app_with_bloc/home/repos/repos.dart';
+import 'package:the_movie_app_with_bloc/model/data_model.dart';
 import 'package:the_movie_app_with_bloc/model/movies_data_model.dart';
 import 'package:the_movie_app_with_bloc/model/response_model.dart';
 

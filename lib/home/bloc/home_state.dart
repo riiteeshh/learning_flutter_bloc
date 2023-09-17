@@ -10,7 +10,7 @@ abstract class HomeActionState extends HomeState {}
 class ProfileNavigateState extends HomeActionState {}
 
 class SuccessState extends HomeState {
-  final List<Result> moviesData;
+  final ResponseModel moviesData;
   SuccessState({
     required this.moviesData,
   });

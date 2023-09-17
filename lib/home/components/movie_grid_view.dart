@@ -36,7 +36,7 @@ class MovieGridVew extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: const BorderRadius.all(Radius.circular(15)),
                   child: Image.network(
-                    'https://image.tmdb.org/t/p/w185${finalData?.posterPath}',
+                    'https://image.tmdb.org/t/p/w185${finalData['poster_path']}',
                     fit: BoxFit.fill,
                     // errorBuilder: (context, error, stackTrace) {
                     //   return const LoadingPage(); // shows loading gif if any type of error arises while loading image
@@ -50,7 +50,7 @@ class MovieGridVew extends StatelessWidget {
             ),
             SizedBox(
               child: Text(
-                finalData!.originalTitle,
+                finalData['original_title'],
                 textAlign: TextAlign.center,
                 style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
@@ -73,7 +73,7 @@ class MovieGridVew extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.01,
                   ),
                   Text(
-                    '${finalData?.voteAverage}/10 IMDb',
+                    '${finalData['vote_average']}/10 IMDb',
                     style: const TextStyle(
                         color: Colors.grey,
                         fontStyle: FontStyle.normal,

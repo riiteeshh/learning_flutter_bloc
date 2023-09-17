@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:the_movie_app_with_bloc/home/bloc/home_bloc.dart';
 import 'package:the_movie_app_with_bloc/home/components/movie_grid_view.dart';
+import 'package:the_movie_app_with_bloc/model/data_model.dart';
 import 'package:the_movie_app_with_bloc/model/movies_data_model.dart';
 import 'package:the_movie_app_with_bloc/routes/routes.dart';
 
@@ -43,8 +44,8 @@ class _HomeUIState extends State<HomeUI> {
           );
         }
         if (state is SuccessState) {
-          final List<Result> finalData = state.moviesData;
-          print('successData ${finalData[0].originalTitle}');
+          final ResponseModel finalData = state.moviesData;
+          print('successData ${finalData.data[0]['original_title']}');
 
           return Scaffold(
               appBar: AppBar(
@@ -61,10 +62,10 @@ class _HomeUIState extends State<HomeUI> {
                             childAspectRatio: 0.56,
                             crossAxisSpacing: 12,
                             mainAxisSpacing: 15.0),
-                    itemCount: finalData.length,
+                    itemCount: finalData.data.length,
                     itemBuilder: (context, index) {
                       return MovieGridVew(
-                        finalData: finalData[index],
+                        finalData: finalData.data[index],
                       );
                     }),
               ));
