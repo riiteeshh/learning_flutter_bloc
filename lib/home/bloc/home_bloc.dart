@@ -22,9 +22,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   FutureOr<void> initialStageEvent(
       InitialStageEvent event, Emitter<HomeState> emit) async {
     emit(HomeInitial());
+    print('reached home initial');
     final movieResult = await Repos.fetchMovieData();
-    print(movieResult);
+    print('fetching complete');
 
+    print(movieResult.runtimeType);
+    print(movieResult);
     emit(SuccessState(moviesData: movieResult));
   }
 }

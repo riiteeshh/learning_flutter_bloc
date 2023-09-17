@@ -14,5 +14,4 @@ class SuccessState extends HomeState {
   SuccessState({
     required this.moviesData,
   });
-  List<Object?> get props => [moviesData];
 }
