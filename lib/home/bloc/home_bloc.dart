@@ -23,7 +23,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   FutureOr<void> initialStageEvent(
       InitialStageEvent event, Emitter<HomeState> emit) async {
     emit(HomeInitial());
-    print('reached home initial');
+    print('reached HOMEINITIAL');
     final movieResult = await Repos.fetchMovieData();
     print('fetching complete');
 
