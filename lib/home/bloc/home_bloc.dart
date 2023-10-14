@@ -25,7 +25,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     emit(HomeInitial());
     print('reached HOMEINITIAL');
     final movieResult = await Repos.fetchMovieData();
-    print('fetching complete');
+    print('fetching completed');
 
     print(movieResult.runtimeType);
     print(movieResult);
